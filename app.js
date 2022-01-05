@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+const { db } = require('./models');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testAPIRouter = require("./routes/testAPI");
+var indexRouter = require('./api/index');
+var usersRouter = require('./api/users');
+var testAPIRouter = require("./api/testAPI");
 
 var app = express();
 
@@ -41,5 +42,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+db.authenticate()
+  .then(() => {
+    console.log('Connected to the database!');
+})
+
 
 module.exports = app;
