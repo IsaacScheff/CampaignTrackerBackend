@@ -43,6 +43,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
 db.authenticate()
   .then(() => {
     console.log('Connected to the database!');
