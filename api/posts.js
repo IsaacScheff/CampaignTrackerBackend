@@ -1,4 +1,4 @@
-'use strict' 
+// 'use strict' 
 
 const Post = require ('../models/post');
 const World = require('../models/world');
@@ -28,14 +28,14 @@ router.get('/:worldId', async (req, res, next) => {
     }
 });
 
-// router.post('/', async (req, res, next) => {
-//     try {
-//         const world = await World.create(req.body);
-//         res.json(world);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+router.post('/', async (req, res, next) => {
+    try {
+        const post = await Post.create(req.body);
+        res.json(post);
+    } catch (error) {
+        next(error);
+    }
+});
 
 // router.delete('/:worldId', async (req, res, next) => {
 //     try {

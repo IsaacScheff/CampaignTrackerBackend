@@ -10,11 +10,6 @@ module.exports = db.define("Post", {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    slug: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
-    },
     type: {
         type: Sequelize.STRING,
         allowNull: false
