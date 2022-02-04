@@ -38,15 +38,15 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// router.delete('/:worldId', async (req, res, next) => {
-//     try {
-//         const world = await World.findByPk(req.params.worldId);
-//         await world.destroy();
-//         res.send(world);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+router.delete('/:commentId', async (req, res, next) => {
+    try {
+        const comment = await Comment.findByPk(req.params.commentId);
+        await comment.destroy();
+        res.send(comment);
+    } catch (error) {
+        next(error);
+    }
+});
 
 // router.put('/:worldId', async (req, res, next) => {
 //     try {

@@ -5,14 +5,6 @@ const World = require('../models/world');
 const User = require('../models/user');
 const router = require('express').Router();
 
-// router.get('/', async (req, res, next) => {
-//     try {
-//         const worlds = await World.findAll();
-//         res.json(worlds);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
 
 router.get('/:worldId', async (req, res, next) => {
     try {
@@ -28,8 +20,16 @@ router.get('/:worldId', async (req, res, next) => {
     }
 });
 
+router.get('/singlepost/:postId', async (req, res, next) => {
+    try {
+        const post = await Post.findByPk(req.params.postId);
+        res.json(post);
+    } catch (error) {
+        next(error);
+    }
+});
+
 router.post('/', async (req, res, next) => {
-    console.log("***************************");
     try {
         const post = await Post.create(req.body);
         res.json(post);
@@ -38,15 +38,15 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// router.delete('/:worldId', async (req, res, next) => {
-//     try {
-//         const world = await World.findByPk(req.params.worldId);
-//         await world.destroy();
-//         res.send(world);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+router.delete('/:postId', async (req, res, next) => {
+    try {
+        const post = await Post.findByPk(req.params.postId);
+        await post.destroy();
+        res.send(post);
+    } catch (error) {
+        next(error);
+    }
+});
 
 // router.put('/:worldId', async (req, res, next) => {
 //     try {
