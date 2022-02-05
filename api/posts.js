@@ -48,13 +48,13 @@ router.delete('/:postId', async (req, res, next) => {
     }
 });
 
-// router.put('/:worldId', async (req, res, next) => {
-//     try {
-//         const world = await World.findByPk(req.params.worldId);
-//         res.send(await world.update(req.body));
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+router.put('/:postId', async (req, res, next) => {
+    try {
+        const post = await Post.findByPk(req.params.postId);
+        res.send(await post.update(req.body));
+    } catch (error) {
+        next(error);
+    }
+});
 
 module.exports = router;
