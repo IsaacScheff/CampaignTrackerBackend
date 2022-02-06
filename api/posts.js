@@ -1,4 +1,6 @@
 // 'use strict' 
+const db = require('../models');
+const sequelize = require('sequelize');
 
 const Post = require ('../models/post');
 const World = require('../models/world');
@@ -28,6 +30,17 @@ router.get('/singlepost/:postId', async (req, res, next) => {
         next(error);
     }
 });
+
+router.get('/types/:worldId', async (req, res, next) => {
+    try {
+        const [results, metadata] = await Post.sequelize.query(`SELECT DISTINCT type FROM "Posts" WHERE "WorldId"=${req.params.worldId}`);
+        //console.log(metadata);
+        const types = results.map(object => object.type);
+        res.json(types);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 router.post('/', async (req, res, next) => {
     try {

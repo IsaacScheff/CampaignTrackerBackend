@@ -1,5 +1,4 @@
 'use strict' 
-
 const World = require('../models/world');
 const User = require('../models/user');
 const router = require('express').Router();
@@ -9,7 +8,7 @@ router.get('/', async (req, res, next) => {
         const worlds = await World.findAll();
         res.json(worlds);
     } catch (error) {
-        next(error);
+        console.log(error);
     }
 });
 
