@@ -4,7 +4,8 @@ const Sequelize = require('sequelize');
 module.exports = db.define("World", {
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     description: {
         type: Sequelize.TEXT

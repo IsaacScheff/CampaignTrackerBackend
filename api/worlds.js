@@ -27,6 +27,20 @@ router.get('/:WorldId', async (req, res, next) => {
     }
 });
 
+router.get('/name/:worldName', async (req, res, next) => {
+    console.log('cehck**********************');
+    try {
+        const world = await World.findOne({
+            where: {
+                name: req.params.worldName
+            }
+        });
+        res.json(world);
+    } catch (error) {
+        next(error);
+    }
+})
+
 router.post('/', async (req, res, next) => {
     try {
         const world = await World.create(req.body);

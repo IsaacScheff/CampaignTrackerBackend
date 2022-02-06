@@ -17,5 +17,4 @@ module.exports = db.define("Post", {
     imageUrl: {
         type: Sequelize.STRING
     }
-    //date/time posted
 });

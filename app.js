@@ -44,6 +44,8 @@ app.use(function(err, req, res, next) {
 });
 
 
+//db.sync();
+
 db.authenticate()
   .then(() => {
     console.log('Connected to the database!');

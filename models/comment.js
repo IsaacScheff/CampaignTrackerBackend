@@ -9,5 +9,4 @@ module.exports = db.define("Comment", {
     imageUrl: {
         type: Sequelize.STRING
     }
-    //date/time posted
 });
