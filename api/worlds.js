@@ -28,7 +28,6 @@ router.get('/:WorldId', async (req, res, next) => {
 });
 
 router.get('/name/:worldName', async (req, res, next) => {
-    console.log('cehck**********************');
     try {
         const world = await World.findOne({
             where: {

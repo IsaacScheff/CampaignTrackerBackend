@@ -1,3 +1,5 @@
+const seed = require('./scripts/seed');
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -5,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const { db } = require('./models');
+
 
 var indexRouter = require('./api/index');
 var usersRouter = require('./api/users');
@@ -44,7 +47,9 @@ app.use(function(err, req, res, next) {
 });
 
 
-//db.sync();
+
+//seed();
+
 
 db.authenticate()
   .then(() => {
