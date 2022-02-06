@@ -1,6 +1,4 @@
 // 'use strict' 
-const db = require('../models');
-const sequelize = require('sequelize');
 
 const Post = require ('../models/post');
 const World = require('../models/world');
@@ -37,6 +35,22 @@ router.get('/types/:worldId', async (req, res, next) => {
         //console.log(metadata);
         const types = results.map(object => object.type);
         res.json(types);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.get('/types/:worldId/:type', async (req, res, next) => {
+    try {
+        const posts = await Post.findAll({
+            where: {
+                WorldId: req.params.worldId,
+                type: req.params.type
+            },
+            //include: [User]
+        });
+        console.log(posts);
+        res.json(posts);
     } catch (error) {
         console.log(error);
     }
