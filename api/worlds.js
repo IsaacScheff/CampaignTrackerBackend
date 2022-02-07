@@ -44,7 +44,8 @@ router.post('/', async (req, res, next) => {
         const world = await World.create(req.body);
         res.json(world);
     } catch (error) {
-        next(error);
+        console.log(error.errors[0].message);
+        res.json(error);
     }
 });
 

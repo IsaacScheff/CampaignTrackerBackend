@@ -13,7 +13,8 @@ module.exports = db.define("Post", {
     type: {
         type: Sequelize.STRING,
         allowNull: false,
-        isAlphanumeric: true
+        isAlphanumeric: true,
+        notContains: " "
     },
     imageUrl: {
         type: Sequelize.STRING
