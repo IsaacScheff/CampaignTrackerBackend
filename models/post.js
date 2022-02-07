@@ -12,7 +12,8 @@ module.exports = db.define("Post", {
     },
     type: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        isAlphanumeric: true
     },
     imageUrl: {
         type: Sequelize.STRING

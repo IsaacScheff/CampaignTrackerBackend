@@ -40,7 +40,7 @@ router.get('/types/:worldId', async (req, res, next) => {
     }
 })
 
-router.get('/types/:worldId/:type', async (req, res, next) => {
+router.get('/bytype/:worldId/:type', async (req, res, next) => {
     try {
         const posts = await Post.findAll({
             where: {
