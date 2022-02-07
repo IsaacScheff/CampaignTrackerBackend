@@ -37,9 +37,9 @@ async function seed() {
   await World.bulkCreate(worlds);
 
   let NPCposts = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 25; i++) {
     NPCposts.push({
-      title: `${faker.company.companyName()}`,
+      title: `${faker.name.findName()}`,
       content: `${faker.lorem.sentence()}`,
       type: "NPC",  
       //imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/1000`,  //posts wont always have images
@@ -51,10 +51,10 @@ async function seed() {
   await Post.bulkCreate(NPCposts);
 
   let placePosts = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 25; i++) {
     placePosts.push({
     title: `${faker.address.county()}`,
-    content: `${faker.lorem.sentence()}`,
+    content: (i % 2 === 0 ? `${faker.lorem.paragraph()}` : `${faker.lorem.sentence()}`),  //to simulate that post lenght will vary
     type: "location",  
     imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/1000`,  
     WorldId: Math.floor(Math.random() * 10) + 1,
@@ -65,7 +65,7 @@ async function seed() {
   await Post.bulkCreate(placePosts);
 
   let itemPosts = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 25; i++) {
     itemPosts.push({
       title: `${faker.commerce.product()}`,
       content: `${faker.lorem.sentence()}`,
@@ -78,8 +78,22 @@ async function seed() {
 
   await Post.bulkCreate(itemPosts);
 
+  let extraTypePosts = [];
+  for (let i = 0; i < 25; i++) {
+    extraTypePosts.push({
+      title: `${faker.commerce.product()}`,
+      content: (i % 2 === 0 ? `${faker.lorem.paragraph()}` : `${faker.lorem.sentence()}`),  //to simulate that post lenght will vary
+      type: `extraType${Math.floor(Math.random() * 5) + 1}`,  
+      imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/1000`,  
+      WorldId: Math.floor(Math.random() * 10) + 1,
+      UserId: 1
+    });
+  }
+
+  await Post.bulkCreate(extraTypePosts);
+
   let comments = [];
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < 200; i++) {
     comments.push({
       content: `${faker.lorem.sentence()}`, 
       imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/1000`,  
