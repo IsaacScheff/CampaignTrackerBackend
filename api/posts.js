@@ -1,8 +1,7 @@
 // 'use strict' 
 
 const Post = require ('../models/post');
-const World = require('../models/world');
-const User = require('../models/user');
+const Comment = require('../models/comment');
 const router = require('express').Router();
 
 
@@ -12,7 +11,7 @@ router.get('/:worldId', async (req, res, next) => {
             where: {
                 WorldId: req.params.worldId
             },
-            //include: [User]
+            include: [Comment]
         });
         res.json(posts);
     } catch (error) {
