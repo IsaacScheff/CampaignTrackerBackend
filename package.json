@@ -1,7 +1,6 @@
 {
   "name": "rpgworldwiki-backend",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "seed": "node scripts/seed.js"
@@ -24,5 +23,8 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^6.0.0-alpha.5"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
