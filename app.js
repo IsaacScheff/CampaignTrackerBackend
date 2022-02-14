@@ -30,7 +30,6 @@ app.use('/testAPI', testAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://ttrpgcampaigntracker.herokuapp.com/");
   next(createError(404));
 });
 
