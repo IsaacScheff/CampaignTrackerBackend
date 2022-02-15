@@ -14,7 +14,7 @@ var corsOptions = {
   methods: "GET, PUT, POST, DELETE"
 }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 var indexRouter = require('./api/index');
