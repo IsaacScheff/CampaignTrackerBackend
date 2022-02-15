@@ -43,6 +43,7 @@ router.get('/name/:worldName', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         res.set('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'POST');
         const world = await World.create(req.body);
         res.json(world);
     } catch (error) {
