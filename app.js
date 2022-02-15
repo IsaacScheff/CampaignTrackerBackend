@@ -18,8 +18,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 
+var corsOptions = {
+  origin: 'http://localhost:8080',
+  optionsSuccessStatus: 200, // For legacy browser support
+  methods: "GET, PUT, POST, DELETE"
+}
 
-app.use(cors());
+app.use(cors(corsOptions));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
