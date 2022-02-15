@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 
 
 var corsOptions = {
-  origin: 'http://localhost:8080',
+  origin: 'http://frontend.campaigntracker.org',
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET, PUT, POST, DELETE"
 }
