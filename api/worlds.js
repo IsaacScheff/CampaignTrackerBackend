@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res, next) => {
     try {
-        res.set('Access-Control-Allow-Origin', '*');
+        //res.set('Access-Control-Allow-Origin', '*');
         const worlds = await World.findAll();
         res.json(worlds);
     } catch (error) {
