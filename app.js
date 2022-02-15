@@ -7,6 +7,15 @@ var cors = require('cors');
 const { db } = require('./models');
 
 
+var corsOptions = {
+  origin: 'http://frontend.campaigntracker.org',
+  optionsSuccessStatus: 200, // For legacy browser support
+  methods: "GET, PUT, POST, DELETE"
+}
+
+app.use(cors(corsOptions));
+
+
 var indexRouter = require('./api/index');
 var usersRouter = require('./api/users');
 var testAPIRouter = require("./api/testAPI");
@@ -17,14 +26,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
-var corsOptions = {
-  origin: 'http://frontend.campaigntracker.org',
-  optionsSuccessStatus: 200, // For legacy browser support
-  methods: "GET, PUT, POST, DELETE"
-}
-
-app.use(cors(corsOptions));
 
 app.use(logger('dev'));
 app.use(express.json());
