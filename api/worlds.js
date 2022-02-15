@@ -5,7 +5,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res, next) => {
     try {
-        // res.set('Access-Control-Allow-Origin', '*');
+        res.set('Access-Control-Allow-Origin', '*');
         const worlds = await World.findAll();
         res.json(worlds);
     } catch (error) {
@@ -43,7 +43,7 @@ router.get('/name/:worldName', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const world = await World.create(req.body);
-        // res.set('Access-Control-Allow-Origin', '*');
+        res.set('Access-Control-Allow-Origin', '*');
         res.json(world);
     } catch (error) {
         console.log(error.errors[0].message);
