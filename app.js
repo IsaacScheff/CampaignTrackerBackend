@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 const { db } = require('./models');
 
+var app = express();
 
 var corsOptions = {
   origin: 'http://frontend.campaigntracker.org',
@@ -20,7 +21,6 @@ var indexRouter = require('./api/index');
 var usersRouter = require('./api/users');
 var testAPIRouter = require("./api/testAPI");
 
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
