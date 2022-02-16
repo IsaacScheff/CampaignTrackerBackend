@@ -2,8 +2,8 @@
   "name": "rpgworldwiki-backend",
   "version": "0.0.0",
   "scripts": {
-    "start": "node scripts/seed.js",
-    "seed": "node ./bin/www"
+    "start": "node ./bin/www", 
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
     "axios": "^0.25.0",
