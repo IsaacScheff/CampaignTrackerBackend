@@ -9,7 +9,7 @@ const { db } = require('./models');
 var app = express();
 
 var corsOptions = {
-  origin: 'https://frontend.campaigntracker.org',
+  origin: 'https://main.campaigntracker.org',
   optionsSuccessStatus: 200, // For legacy browser support
   methods: "GET, PUT, POST, DELETE"
 }
