@@ -8,14 +8,14 @@ const { db } = require('./models');
 
 var app = express();
 
-var corsOptions = {
-  origin: 'https://main.campaigntracker.org',
-  optionsSuccessStatus: 200, // For legacy browser support
-  methods: "GET, PUT, POST, DELETE"
-}
+// var corsOptions = {
+//   origin: 'https://main.campaigntracker.org',
+//   optionsSuccessStatus: 200, // For legacy browser support
+//   methods: "GET, PUT, POST, DELETE"
+// }
 
-app.use(cors(corsOptions));
-
+//app.use(cors(corsOptions));
+app.use(cors());
 
 
 var indexRouter = require('./api/index');
