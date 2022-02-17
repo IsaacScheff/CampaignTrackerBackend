@@ -21,7 +21,12 @@ router.get('/:worldId', async (req, res, next) => {
 
 router.get('/singlepost/:postId', async (req, res, next) => {
     try {
-        const post = await Post.findByPk(req.params.postId);
+        const post = await Post.findOne({
+            where: {
+                id: req.params.postId
+            },
+            include: [Comment]
+        });
         res.json(post);
     } catch (error) {
         next(error);
@@ -46,7 +51,7 @@ router.get('/bytype/:worldId/:type', async (req, res, next) => {
                 WorldId: req.params.worldId,
                 type: req.params.type
             },
-            //include: [User]
+            include: [Comment]
         });
         console.log(posts);
         res.json(posts);
